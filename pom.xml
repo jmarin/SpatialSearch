@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>gov.fcc.geo</groupId>
-	<artifactId>pointpoly</artifactId>
+	<groupId>org.geo</groupId>
+	<artifactId>spatialsearch</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 
-	<name>PointPoly</name>
+	<name>SpatialSearch</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -301,7 +301,7 @@
 				<configuration>
 					<!-- http://docs.codehaus.org/display/JETTY/Maven+Jetty+Plugin -->
 					<scanIntervalSeconds>10</scanIntervalSeconds>
-					<contextPath>/pointpoly</contextPath>
+					<contextPath>/spatialsearch</contextPath>
 					<systemProperties>
 						<systemProperty>
 							<name>log4j.configuration</name>
@@ -314,7 +314,7 @@
 							<maxIdleTime>60000</maxIdleTime>
 						</connector>
 					</connectors>
-					<webApp>${basedir}/target/pointpoly</webApp>
+					<webApp>${basedir}/target/spatialsearch</webApp>
 				</configuration>
 				<executions>
 					<execution>
@@ -344,7 +344,7 @@
 				</dependencies>
 			</plugin>
 		</plugins>
-		<finalName>pointpoly</finalName>
+		<finalName>spatialsearch</finalName>
 	</build>
 		<repositories>
 		<repository>
