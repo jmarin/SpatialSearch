@@ -9,3 +9,7 @@
 
 target/
 logs/
+
+.classpath
+.project
+.settings
