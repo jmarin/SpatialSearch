@@ -84,6 +84,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+ 		        <groupId>com.vividsolutions</groupId>
+			<artifactId>jts</artifactId>
+			<version>${jts.version}</version>
+		</dependency>
+
 		<!-- PostgreSQL Driver -->
 		<dependency>
 			<groupId>postgresql</groupId>
