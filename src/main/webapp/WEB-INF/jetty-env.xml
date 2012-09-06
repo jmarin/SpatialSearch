@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configure class="org.mortbay.jetty.webapp.WebAppContext">
+	<New id="DSTest" class="org.mortbay.jetty.plus.naming.Resource">
+		<Arg></Arg>
+		<Arg>jdbc/SpatialSearch</Arg>
+		<Arg>
+			<New class="org.postgresql.ds.PGSimpleDataSource">
+				<Set name="User">geo</Set>
+				<Set name="Password">ge0</Set>
+				<Set name="DatabaseName">gisdb</Set>
+				<Set name="ServerName">localhost</Set>
+				<Set name="PortNumber">5432</Set>
+			</New>
+		</Arg>
+	</New>
+</Configure>
