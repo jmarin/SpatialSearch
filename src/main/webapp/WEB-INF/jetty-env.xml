@@ -5,8 +5,8 @@
 		<Arg>jdbc/SpatialSearch</Arg>
 		<Arg>
 			<New class="org.postgresql.ds.PGSimpleDataSource">
-				<Set name="User">geo</Set>
-				<Set name="Password">ge0</Set>
+				<Set name="User">postgres</Set>
+				<Set name="Password"></Set>
 				<Set name="DatabaseName">gisdb</Set>
 				<Set name="ServerName">localhost</Set>
 				<Set name="PortNumber">5432</Set>
