@@ -21,7 +21,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="hibernateProperties">
 			<value>
-				hibernate.dialect=org.hibernatespatial.geodb.GeoDBDialect
+				hibernate.dialect=org.hibernate.spatial.dialect.geodb.GeoDBDialect
 				hibernate.show_sql=true
 				hibernate.format_sql=true
 				hibernate.generate_statistics=true

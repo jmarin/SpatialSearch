@@ -36,11 +36,11 @@
 			<props>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
-				<prop key="hibernate.dialect">org.hibernatespatial.postgis.PostgisDialect
+				<prop key="hibernate.dialect">org.hibernate.spatial.dialect.postgis.PostgisDialect
 				</prop>
-				<prop key="hibernate.query.factory_class">
+				<!-- <prop key="hibernate.query.factory_class">
 					org.hibernate.hql.classic.ClassicQueryTranslatorFactory
-				</prop>
+				</prop> -->
 				<!-- <prop key="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheRegionFactory</prop> 
 					<prop key="hibernate.cache.use_second_level_cache">true</prop> <prop key="hibernate.cache.use_query_cache">true</prop> 
 					<prop key="cache.use_minimal_puts">true</prop> <prop key="hibernate.generate_statistics">false</prop> 
