@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<property name="hibernate.dialect">org.hibernate.spatial.dialect.postgis.PostgisDialect</property>
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.spatial.dialect.postgis.PostgisDialect
+		</property>
+	</session-factory>
+</hibernate-configuration>

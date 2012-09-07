@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
@@ -13,16 +14,14 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd
         http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
 
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="configLocation" value="classpath:hibernate.cfg.xml" />
-	</bean>
-
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	<bean id="state2010DAO" class="org.geo.spatialsearch.dao.AbstractHibernateDAO">
+		<qualifier value="state2010DAO" />
 		<property name="sessionFactory" ref="sessionFactory" />
+		<constructor-arg>
+			<bean class="java.lang.Class" factory-method="forName">
+				<constructor-arg value="org.geo.spatialsearch.census.model.State2010" />
+			</bean>
+		</constructor-arg>
 	</bean>
 
-	<!-- Translates Hibernate exceptions to Spring Data Access Exceptions -->
-	<bean class="org.springframework.orm.hibernate4.HibernateExceptionTranslator" />
 </beans>

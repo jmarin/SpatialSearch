@@ -15,8 +15,8 @@
 		<junit.version>4.8.1</junit.version>
 		<mockito.version>1.9.0</mockito.version>
 		<springframework.version>3.1.2.RELEASE</springframework.version>
+		<aspectj.version>1.7.0</aspectj.version>
 		<hibernate.version>4.1.6.Final</hibernate.version>
-		<hibernate.annotations.version>3.5.6-Final</hibernate.annotations.version>
 		<hibernate.spatial.version>4.0-M1</hibernate.spatial.version>
 		<postgresql.driver.version>9.0-801.jdbc4</postgresql.driver.version>
 		<jts.version>1.12</jts.version>
@@ -36,32 +36,47 @@
 		</dependency>
 
 		<!-- Spring -->
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
+			<artifactId>spring-core</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4</version>
-		</dependency>
+		<!-- AspectJ -->
 
+		<!-- <dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+ -->
 		<!-- Hibernate Spatial -->
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-annotations</artifactId>
-			<version>${hibernate.annotations.version}</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -73,19 +88,21 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.6.1</version>
 		</dependency>
-
+		<dependency>
+		     <groupId>org.hibernate</groupId>
+		     <artifactId>hibernate-core</artifactId>
+		     <version>${hibernate.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-spatial</artifactId>
 			<version>${hibernate.spatial.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
 			<version>2.2.2</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.vividsolutions</groupId>
 			<artifactId>jts</artifactId>
@@ -99,7 +116,6 @@
 			<scope>compile</scope>
 			<version>${postgresql.driver.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.postgis</groupId>
 			<artifactId>postgis-jdbc</artifactId>
@@ -307,7 +323,6 @@
 				<artifactId>maven-jetty-plugin</artifactId>
 				<version>6.1.25</version>
 				<configuration>
-					<!-- http://docs.codehaus.org/display/JETTY/Maven+Jetty+Plugin -->
 					<scanIntervalSeconds>10</scanIntervalSeconds>
 					<contextPath>/spatialsearch</contextPath>
 					<systemProperties>
@@ -413,10 +428,10 @@
 			<id>maven2-repository.dev.java.net</id>
 			<url>http://download.java.net/maven/2</url>
 		</pluginRepository>
-		<pluginRepository>
+		<!-- <pluginRepository>
 			<id>maven-repository.dev.java.net</id>
 			<url>http://download.java.net/maven/1</url>
 			<layout>legacy</layout>
-		</pluginRepository>
+		</pluginRepository> -->
 	</pluginRepositories>
 </project>

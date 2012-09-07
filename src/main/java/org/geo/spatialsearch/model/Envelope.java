@@ -1,4 +1,4 @@
-package org.geo.spatialsearch.common.model;
+package org.geo.spatialsearch.model;
 
 import java.io.Serializable;
 

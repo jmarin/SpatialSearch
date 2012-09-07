@@ -1,4 +1,4 @@
-package org.geo.spatialsearch.common.dao;
+package org.geo.spatialsearch.dao;
 
 import java.io.Serializable;
 import java.util.List;
