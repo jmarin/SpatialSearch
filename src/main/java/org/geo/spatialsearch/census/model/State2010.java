@@ -2,14 +2,12 @@ package org.geo.spatialsearch.census.model;
 
 import javax.persistence.Column;
 
-import org.geo.spatialsearch.model.GeoBaseEntity;
-
 /**
  * 
  * @author Juan Marin
  * 
  */
-public class State2010 extends GeoBaseEntity {
+public class State2010 extends CensusGeoBaseObject {
 
     @Column(name = "USPS10")
     private String stusps;

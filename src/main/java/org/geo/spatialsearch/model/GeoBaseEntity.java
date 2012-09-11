@@ -1,5 +1,7 @@
 package org.geo.spatialsearch.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
@@ -19,7 +21,7 @@ import com.vividsolutions.jts.geom.Geometry;
  */
 @MappedSuperclass
 @XmlAccessorType(XmlAccessType.FIELD)
-public class GeoBaseEntity {
+public class GeoBaseEntity implements Serializable {
 
     @Id
     private Long id;

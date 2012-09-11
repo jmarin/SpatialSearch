@@ -24,4 +24,8 @@
 		</constructor-arg>
 	</bean>
 
+    <bean id="censusService"
+        class="org.geo.spatialsearch.service.impl.CensusServiceImpl">
+        <qualifier value="censusService" />
+    </bean>
 </beans>

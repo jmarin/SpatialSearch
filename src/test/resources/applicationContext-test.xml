@@ -21,7 +21,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="hibernateProperties">
 			<value>
-				hibernate.dialect=org.hibernate.spatial.dialect.geodb.GeoDBDialect
+				hibernate.dialect=org.hibernate.spatial.dialect.h2geodb.GeoDBDialect
 				hibernate.show_sql=true
 				hibernate.format_sql=true
 				hibernate.generate_statistics=true
@@ -29,8 +29,8 @@
 				hibernate.cache.use_query_cache=false
 			</value>
 		</property>
-		<property name="mappingDirectoryLocations" value="classpath:geo/mappings" />
-		<!-- <property name="annotatedClasses"> <list> <value>gov.fcc.nbm.broadband.model.BroadbandSource</value> 
+		<!--<property name="mappingDirectoryLocations" value="classpath:geo/mappings" />
+		 <property name="annotatedClasses"> <list> <value>gov.fcc.nbm.broadband.model.BroadbandSource</value> 
 			<value>gov.fcc.nbm.broadband.model.Geography</value> </list> </property> -->
 	</bean>
 
