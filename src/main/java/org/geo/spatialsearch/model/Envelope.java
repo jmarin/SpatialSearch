@@ -2,65 +2,70 @@ package org.geo.spatialsearch.model;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * @author Juan Marin
+ * 
+ */
 public class Envelope implements Serializable {
 
-	/**
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = -6722755323693035564L;
+    private static final long serialVersionUID = -6722755323693035564L;
 
-	private double minx;
-	
-	private double maxx;
-	
-	private double miny;
-	
-	private double maxy;
-	
-	public Envelope(){}
-	
-	public Envelope (com.vividsolutions.jts.geom.Envelope env){
-		this.minx = env.getMinX();
-		this.maxx = env.getMaxX();
-		this.miny = env.getMinY();
-		this.maxy = env.getMaxY();
-	}
+    private double minx;
 
-	public double getMinx() {
-		return minx;
-	}
+    private double maxx;
 
-	public void setMinx(double minx) {
-		this.minx = minx;
-	}
+    private double miny;
 
-	public double getMaxx() {
-		return maxx;
-	}
+    private double maxy;
 
-	public void setMaxx(double maxx) {
-		this.maxx = maxx;
-	}
+    public Envelope() {
+    }
 
-	public double getMiny() {
-		return miny;
-	}
+    public Envelope(com.vividsolutions.jts.geom.Envelope env) {
+        this.minx = env.getMinX();
+        this.maxx = env.getMaxX();
+        this.miny = env.getMinY();
+        this.maxy = env.getMaxY();
+    }
 
-	public void setMiny(double miny) {
-		this.miny = miny;
-	}
+    public double getMinx() {
+        return minx;
+    }
 
-	public double getMaxy() {
-		return maxy;
-	}
+    public void setMinx(double minx) {
+        this.minx = minx;
+    }
 
-	public void setMaxy(double maxy) {
-		this.maxy = maxy;
-	}
+    public double getMaxx() {
+        return maxx;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	
+    public void setMaxx(double maxx) {
+        this.maxx = maxx;
+    }
+
+    public double getMiny() {
+        return miny;
+    }
+
+    public void setMiny(double miny) {
+        this.miny = miny;
+    }
+
+    public double getMaxy() {
+        return maxy;
+    }
+
+    public void setMaxy(double maxy) {
+        this.maxy = maxy;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
 }

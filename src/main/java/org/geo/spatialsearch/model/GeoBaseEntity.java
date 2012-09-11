@@ -12,6 +12,11 @@ import org.hibernate.annotations.Type;
 
 import com.vividsolutions.jts.geom.Geometry;
 
+/**
+ * 
+ * @author Juan Marin
+ * 
+ */
 @MappedSuperclass
 @XmlAccessorType(XmlAccessType.FIELD)
 public class GeoBaseEntity {

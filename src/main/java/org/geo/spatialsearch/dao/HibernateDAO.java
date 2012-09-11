@@ -5,6 +5,13 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 
+/**
+ * 
+ * @author Juan Marin
+ * 
+ * @param <T>
+ * @param <S>
+ */
 public interface HibernateDAO<T extends Serializable, S extends Serializable> {
 
     public T findById(final S id);

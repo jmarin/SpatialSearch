@@ -4,6 +4,11 @@ import javax.persistence.Column;
 
 import org.geo.spatialsearch.model.GeoBaseEntity;
 
+/**
+ * 
+ * @author Juan Marin
+ * 
+ */
 public class State2010 extends GeoBaseEntity {
 
     @Column(name = "USPS10")
