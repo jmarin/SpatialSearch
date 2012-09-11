@@ -14,7 +14,7 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd
         http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
 
-	<bean id="state2010DAO" class="org.geo.spatialsearch.dao.AbstractHibernateDAO">
+	<bean id="state2010DAO" class="org.geo.spatialsearch.dao.HibernateDAOImpl">
 		<qualifier value="state2010DAO" />
 		<property name="sessionFactory" ref="sessionFactory" />
 		<constructor-arg>
