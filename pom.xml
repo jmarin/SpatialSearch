@@ -384,6 +384,8 @@
 						</connector>
 					</connectors>
 					<webApp>${basedir}/target/spatialsearch</webApp>
+					<stopPort>9966</stopPort>
+					<stopKey>foo</stopKey>
 				</configuration>
 				<executions>
 					<execution>
