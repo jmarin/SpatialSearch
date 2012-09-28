@@ -29,9 +29,13 @@
 				hibernate.cache.use_query_cache=false
 			</value>
 		</property>
-		<!--<property name="mappingDirectoryLocations" value="classpath:geo/mappings" />
-		 <property name="annotatedClasses"> <list> <value>gov.fcc.nbm.broadband.model.BroadbandSource</value> 
-			<value>gov.fcc.nbm.broadband.model.Geography</value> </list> </property> -->
+		<property name="mappingDirectoryLocations" value="classpath:geo/mappings" />
+		<!-- <property name="annotatedClasses">
+			<list>
+				<value>gov.fcc.nbm.broadband.model.BroadbandSource</value>
+				<value>gov.fcc.nbm.broadband.model.Geography</value>
+			</list>
+		</property> -->
 	</bean>
 
 	<!-- Creates a Hibernate Transaction Manager -->
