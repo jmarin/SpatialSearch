@@ -18,10 +18,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "State")
 @XmlRootElement(name = "State")
 @Entity
-@Table(name = "state2000", schema = "census")
+@Table(name = "state2010", schema = "census")
 public class State2010 extends CensusGeoBaseObject {
 
-    @Column(name = "USPS10")
+    @Column(name = "STUSPS10")
     private String stusps;
 
     @Column(name = "GEOID10")

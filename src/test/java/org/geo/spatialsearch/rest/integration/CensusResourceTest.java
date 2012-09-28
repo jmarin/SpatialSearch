@@ -22,7 +22,7 @@ public class CensusResourceTest extends RestfulTest {
 
     @Test
     public void testFindStateByCoordinates() throws JSONException {
-        ClientResponse response = this.webResource.path("census").path("state")
+        ClientResponse response = this.webResource.path("census").path("state2010")
                 .queryParam("latitude", "42.919")
                 .queryParam("longitude", "-75.2517")
                 .queryParam("format", "json").get(ClientResponse.class);
@@ -35,10 +35,9 @@ public class CensusResourceTest extends RestfulTest {
         Assert.assertFalse(states.isNull(0));
         JSONObject state = (JSONObject) states.get(0);
 
-        assertEquals("36", state.get("fips"));
+        assertEquals("36", state.get("geoid"));
         assertEquals("New York", state.get("name"));
-        assertEquals("NY", state.get("stateCode"));
-        assertEquals("STATE2000", state.get("geographyType"));
+        assertEquals("NY", state.get("stusps"));
     }
 
 }
