@@ -24,8 +24,14 @@
 		</constructor-arg>
 	</bean>
 
-    <bean id="censusService"
-        class="org.geo.spatialsearch.service.impl.CensusServiceImpl">
-        <qualifier value="censusService" />
-    </bean>
+	<bean id="censusService" class="org.geo.spatialsearch.service.impl.CensusServiceImpl">
+		<qualifier value="censusService" />
+	</bean>
+
+
+	<bean id="exceptionHandler" class="org.geo.spatialsearch.util.ExceptionHandler">
+		<qualifier value="exceptionHandler" />
+	</bean>
+
+
 </beans>

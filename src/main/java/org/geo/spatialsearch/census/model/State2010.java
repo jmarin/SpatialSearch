@@ -1,12 +1,24 @@
 package org.geo.spatialsearch.census.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * 
  * @author Juan Marin
  * 
  */
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "State")
+@XmlRootElement(name = "State")
+@Entity
+@Table(name = "state2000", schema = "census")
 public class State2010 extends CensusGeoBaseObject {
 
     @Column(name = "USPS10")
