@@ -15,5 +15,5 @@ public interface CensusService {
             Long id);
 
     public CensusLookupResponse findByCoordinates(
-            CensusGeographyEnum geographyType, double latitude, double longitude);
+            CensusGeographyEnum geographyType, double longitude, double latitude);
 }

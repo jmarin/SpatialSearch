@@ -1,5 +1,8 @@
 package org.geo.spatialsearch.rest;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -17,11 +20,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "Response")
 public class APIResponse {
 
+    @XmlElement(name = "message")
+    protected List<String> messageList = new ArrayList<String>();
+
+    @XmlAttribute
+    protected Long responseTime;
+
     @XmlAttribute
     private String status;
-
-    @XmlElement
-    private API api;
 
     public void setStatus(String status) {
         this.status = status;
@@ -31,11 +37,23 @@ public class APIResponse {
         return status;
     }
 
-    public void setApi(API api) {
-        this.api = api;
+    public Long getResponseTime() {
+        return responseTime;
     }
 
-    public API getApi() {
-        return api;
+    public void setResponseTime(Long responseTime) {
+        this.responseTime = responseTime;
     }
+
+    public List<String> getMessageList() {
+        if (messageList == null) {
+            messageList = new ArrayList<String>();
+        }
+        return messageList;
+    }
+
+    public void setMessageList(List<String> messageList) {
+        this.messageList = messageList;
+    }
+
 }
