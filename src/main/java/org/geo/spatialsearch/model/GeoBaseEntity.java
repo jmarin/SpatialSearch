@@ -32,7 +32,6 @@ public class GeoBaseEntity implements Serializable {
     private Geometry geometry;
 
     @XmlTransient
-    @XmlElement
     private Envelope envelope;
 
     public Long getId() {

@@ -60,10 +60,93 @@ public class CensusServiceImpl implements CensusService {
             case STATE2010:
                 findStateByPoint(apiResponse, point);
                 break;
+            case COUNTY2010:
+                findCountyByPoint(apiResponse, point);
+                break;
+            case TRACT2010:
+                findTractByPoint(apiResponse, point);
+                break;
+            case BLOCK2010:
+                findBlockByPoint(apiResponse, point);
+                break;
+            case CONGRESSIONAL_DISTRICT:
+                findCongressionalDistrictByPoint(apiResponse, point);
+                break;
+            case MSA:
+                findMSAByPoint(apiResponse, point);
+                break;
+            case PLACE:
+                findPlaceByPoint(apiResponse, point);
+                break;
+            case STATE_HOUSE_DISTRICT:
+                findStateHouseDistrictByPoint(apiResponse, point);
+                break;
+            case STATE_SENATE_DISTRICT:
+                findStateSenateDistrictByPoint(apiResponse, point);
+                break;
+            case TRIBAL:
+                findTribalByPoint(apiResponse, point);
+                break;
+            case ALL:
+                findAllByPoint(apiResponse, point);
+                break;
             }
             apiResponse.setStatus(Status.OK.getReasonPhrase());
         }
         return apiResponse;
+    }
+
+    private void findAllByPoint(CensusLookupResponse apiResponse, Point point) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    private void findTribalByPoint(CensusLookupResponse apiResponse, Point point) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    private void findStateSenateDistrictByPoint(
+            CensusLookupResponse apiResponse, Point point) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    private void findStateHouseDistrictByPoint(
+            CensusLookupResponse apiResponse, Point point) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    private void findPlaceByPoint(CensusLookupResponse apiResponse, Point point) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    private void findMSAByPoint(CensusLookupResponse apiResponse, Point point) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    private void findCongressionalDistrictByPoint(
+            CensusLookupResponse apiResponse, Point point) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    private void findBlockByPoint(CensusLookupResponse apiResponse, Point point) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    private void findTractByPoint(CensusLookupResponse apiResponse, Point point) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    private void findCountyByPoint(CensusLookupResponse apiResponse, Point point) {
+        // TODO Auto-generated method stub
+        
     }
 
     @Transactional(readOnly = true)
@@ -79,7 +162,6 @@ public class CensusServiceImpl implements CensusService {
         ValidationUtil.isEmptyResult(apiResponse, apiResponse
                 .getCensusLookupBaseResponse().getStates(),
                 Message.NO_STATE_RESULTS_FOUND, null);
-
     }
 
 }
