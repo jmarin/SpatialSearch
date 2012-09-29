@@ -43,12 +43,9 @@ public class CensusResourceImpl implements CensusResource {
     @Qualifier("exceptionHandler")
     private ExceptionHandler handler;
 
-    // private static final String CENSUS_BY_COORDINATES =
-    // "Census-findByCoordinates";
-    // private static final String CENSUS_BY_FIPSCODE =
-    // "Census-findGeographyByFips";
-    // private static final String CENSUS_BY_GEOGRAPHY_NAME =
-    // "Census-findGeographyByName";
+//    private static final String CENSUS_BY_COORDINATES = "Census-findByCoordinates";
+//    private static final String CENSUS_BY_FIPSCODE = "Census-findGeographyByFips";
+//    private static final String CENSUS_BY_GEOGRAPHY_NAME = "Census-findGeographyByName";
 
     @Override
     @Path(value = "{geography}")
@@ -71,8 +68,7 @@ public class CensusResourceImpl implements CensusResource {
             exception = ex;
             // System.out.println(ex.getStackTrace());
         }
-        // APIStatsProfiler.captureStatistics(CENSUS_BY_COORDINATES,
-        // apiResponse, uriInfo, true, exception);
+        //APIStatsProfiler.captureStatistics(CENSUS_BY_COORDINATES, apiResponse,uriInfo, true, exception);
         Response response = RestFormatUtil
                 .format(format, callback, apiResponse);
         return response;

@@ -14,6 +14,7 @@ import org.geo.spatialsearch.model.Envelope;
 import org.geo.spatialsearch.service.CensusService;
 import org.geo.spatialsearch.util.GeometryUtil;
 import org.geo.spatialsearch.util.Message;
+import org.geo.spatialsearch.util.ResponseTime;
 import org.geo.spatialsearch.util.ValidationUtil;
 import org.hibernate.Criteria;
 import org.hibernate.spatial.criterion.SpatialRestrictions;
@@ -32,6 +33,7 @@ public class CensusServiceImpl implements CensusService {
 
     @Override
     @Transactional(readOnly = true)
+    @ResponseTime
     public CensusGeoBaseObject findById(CensusGeographyEnum geographyType,
             Long id) {
         CensusGeoBaseObject geoEntity = null;
@@ -45,6 +47,7 @@ public class CensusServiceImpl implements CensusService {
 
     @Override
     @Transactional(readOnly = true)
+    @ResponseTime
     public CensusLookupResponse findByCoordinates(
             CensusGeographyEnum geographyType, double longitude, double latitude) {
 
@@ -98,55 +101,55 @@ public class CensusServiceImpl implements CensusService {
 
     private void findAllByPoint(CensusLookupResponse apiResponse, Point point) {
         // TODO Auto-generated method stub
-        
+
     }
 
     private void findTribalByPoint(CensusLookupResponse apiResponse, Point point) {
         // TODO Auto-generated method stub
-        
+
     }
 
     private void findStateSenateDistrictByPoint(
             CensusLookupResponse apiResponse, Point point) {
         // TODO Auto-generated method stub
-        
+
     }
 
     private void findStateHouseDistrictByPoint(
             CensusLookupResponse apiResponse, Point point) {
         // TODO Auto-generated method stub
-        
+
     }
 
     private void findPlaceByPoint(CensusLookupResponse apiResponse, Point point) {
         // TODO Auto-generated method stub
-        
+
     }
 
     private void findMSAByPoint(CensusLookupResponse apiResponse, Point point) {
         // TODO Auto-generated method stub
-        
+
     }
 
     private void findCongressionalDistrictByPoint(
             CensusLookupResponse apiResponse, Point point) {
         // TODO Auto-generated method stub
-        
+
     }
 
     private void findBlockByPoint(CensusLookupResponse apiResponse, Point point) {
         // TODO Auto-generated method stub
-        
+
     }
 
     private void findTractByPoint(CensusLookupResponse apiResponse, Point point) {
         // TODO Auto-generated method stub
-        
+
     }
 
     private void findCountyByPoint(CensusLookupResponse apiResponse, Point point) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Transactional(readOnly = true)
