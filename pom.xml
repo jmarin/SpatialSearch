@@ -23,6 +23,7 @@
 		<jersey.version>1.9-ea04</jersey.version>
 		<jackson.version>1.9.9</jackson.version>
 		<jaxb.version>2.2.6</jaxb.version>
+		<jamon.version>2.4</jamon.version>
 	</properties>
 
 
@@ -90,10 +91,17 @@
 
 		<!-- AspectJ -->
 
-		<!-- <dependency> <groupId>org.aspectj</groupId> <artifactId>aspectjrt</artifactId> 
-			<version>${aspectj.version}</version> </dependency> <dependency> <groupId>org.aspectj</groupId> 
-			<artifactId>aspectjweaver</artifactId> <version>${aspectj.version}</version> 
-			</dependency> -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		
 		<!-- Hibernate Spatial -->
 
 		<dependency>
@@ -240,6 +248,14 @@
 			<groupId>net.sf.ehcache</groupId>
 			<artifactId>ehcache-core</artifactId>
 			<version>2.6.0</version>
+		</dependency>
+
+		<!-- Monitoring -->
+		<dependency>
+			<groupId>com.jamonapi</groupId>
+			<artifactId>jamon</artifactId>
+			<version>${jamon.version}</version>
+
 		</dependency>
 
 		<!-- Testing -->

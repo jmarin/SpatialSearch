@@ -14,8 +14,9 @@
 		http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
 
+	<import resource="classpath:applicationContext-aspects.xml" />
 	<import resource="classpath:applicationContext-hibernate.xml" />
-	<import resource="classpath:applicationContext-service.xml" />
 	<import resource="classpath:applicationContext-rest.xml" />
+	<import resource="classpath:applicationContext-service.xml" />
 
 </beans>
