@@ -24,9 +24,6 @@ public class APIResponse {
     protected List<String> messageList = new ArrayList<String>();
 
     @XmlAttribute
-    protected Long responseTime;
-
-    @XmlAttribute
     private String status;
 
     public void setStatus(String status) {
@@ -36,15 +33,7 @@ public class APIResponse {
     public String getStatus() {
         return status;
     }
-
-    public Long getResponseTime() {
-        return responseTime;
-    }
-
-    public void setResponseTime(Long responseTime) {
-        this.responseTime = responseTime;
-    }
-
+    
     public List<String> getMessageList() {
         if (messageList == null) {
             messageList = new ArrayList<String>();

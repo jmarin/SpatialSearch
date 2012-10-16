@@ -22,6 +22,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.yammer.metrics.annotation.Timed;
+
 /**
  * 
  * @author Juan Marin
@@ -43,13 +45,14 @@ public class CensusResourceImpl implements CensusResource {
     @Qualifier("exceptionHandler")
     private ExceptionHandler handler;
 
-//    private static final String CENSUS_BY_COORDINATES = "Census-findByCoordinates";
-//    private static final String CENSUS_BY_FIPSCODE = "Census-findGeographyByFips";
-//    private static final String CENSUS_BY_GEOGRAPHY_NAME = "Census-findGeographyByName";
+    //private static final String CENSUS_BY_COORDINATES = "Census-findByCoordinates";
+    //private static final String CENSUS_BY_FIPSCODE = "Census-findGeographyByFips";
+    //private static final String CENSUS_BY_GEOGRAPHY_NAME = "Census-findGeographyByName";
 
     @Override
     @Path(value = "{geography}")
     @GET
+    @Timed
     public Response findByCoordinates(@Context UriInfo uriInfo,
             @PathParam(value = "geography") String geography,
             @QueryParam(value = "latitude") double latitude,
@@ -66,7 +69,6 @@ public class CensusResourceImpl implements CensusResource {
         } catch (Exception ex) {
             handler.handle(apiResponse, ex);
             exception = ex;
-            // System.out.println(ex.getStackTrace());
         }
         //APIStatsProfiler.captureStatistics(CENSUS_BY_COORDINATES, apiResponse,uriInfo, true, exception);
         Response response = RestFormatUtil

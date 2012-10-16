@@ -14,7 +14,6 @@ import org.geo.spatialsearch.model.Envelope;
 import org.geo.spatialsearch.service.CensusService;
 import org.geo.spatialsearch.util.GeometryUtil;
 import org.geo.spatialsearch.util.Message;
-import org.geo.spatialsearch.util.ResponseTime;
 import org.geo.spatialsearch.util.ValidationUtil;
 import org.hibernate.Criteria;
 import org.hibernate.spatial.criterion.SpatialRestrictions;
@@ -33,7 +32,6 @@ public class CensusServiceImpl implements CensusService {
 
     @Override
     @Transactional(readOnly = true)
-    @ResponseTime
     public CensusGeoBaseObject findById(CensusGeographyEnum geographyType,
             Long id) {
         CensusGeoBaseObject geoEntity = null;
@@ -47,7 +45,6 @@ public class CensusServiceImpl implements CensusService {
 
     @Override
     @Transactional(readOnly = true)
-    @ResponseTime
     public CensusLookupResponse findByCoordinates(
             CensusGeographyEnum geographyType, double longitude, double latitude) {
 
