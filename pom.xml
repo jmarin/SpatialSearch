@@ -102,7 +102,7 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>${aspectj.version}</version>
 		</dependency>
-		
+
 		<!-- Hibernate Spatial -->
 
 		<dependency>
@@ -252,23 +252,30 @@
 		</dependency>
 
 		<!-- Monitoring -->
-		
+
 		<dependency>
-		     <groupId>com.yammer.metrics</groupId>
-		     <artifactId>metrics-core</artifactId>
-		     <version>${metrics.version}</version>
+			<groupId>com.yammer.metrics</groupId>
+			<artifactId>metrics-core</artifactId>
+			<version>${metrics.version}</version>
 		</dependency>
 		<dependency>
-		     <groupId>com.yammer.metrics</groupId>
-		     <artifactId>metrics-web</artifactId>
-		     <version>${metrics.version}</version>
+			<groupId>com.yammer.metrics</groupId>
+			<artifactId>metrics-web</artifactId>
+			<version>${metrics.version}</version>
 		</dependency>
 		<dependency>
-		     <groupId>com.yammer.metrics</groupId>
-		     <artifactId>metrics-jersey</artifactId>
-		     <version>${metrics.version}</version>
+			<groupId>com.yammer.metrics</groupId>
+			<artifactId>metrics-jersey</artifactId>
+			<version>${metrics.version}</version>
 		</dependency>
-		
+
+		<!-- Documentation -->
+		<dependency>
+			<groupId>com.wordnik</groupId>
+			<artifactId>swagger-jaxrs_2.9.1</artifactId>
+			<version>1.1.0</version>
+			<scope>compile</scope>
+		</dependency>
 
 		<!-- Testing -->
 		<dependency>

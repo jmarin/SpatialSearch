@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
+import org.geo.spatialsearch.census.model.Block2010;
 import org.geo.spatialsearch.census.model.CensusGeographyEnum;
 import org.geo.spatialsearch.census.model.State2010;
 import org.junit.Assert;
@@ -47,4 +48,28 @@ public class CensusServiceTest {
         State2010 state2010 = states.get(0);
         assertEquals(state2010.getName().trim(), "New York");
     }
+
+    @Test
+    public void testBlockById() {
+        Long id = 1L;
+        Block2010 block = (Block2010) censusService.findById(
+                CensusGeographyEnum.BLOCK2010, id);
+        assertNotNull(block);
+        assertEquals(block.getGeoid(), "360010019012001");
+    }
+
+    @Test
+    public void testBlock2000ByCoordinates() {
+        Coordinate coordinate = new Coordinate();
+        coordinate.x = -73.781;
+        coordinate.y = 42.649;
+        List<Block2010> blocks = censusService
+                .findByCoordinates(CensusGeographyEnum.BLOCK2010, coordinate.x,
+                        coordinate.y).getCensusLookupBaseResponse().getBlocks();
+        Assert.assertFalse(blocks.isEmpty());
+        Block2010 block = blocks.get(0);
+        assertEquals(block.getStatefp(), "36");
+        assertEquals(block.getGeoid(), "360010019012001");
+    }
+
 }

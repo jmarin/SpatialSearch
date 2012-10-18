@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ws.rs.core.Response.Status;
 
+import org.geo.spatialsearch.census.model.Block2010;
 import org.geo.spatialsearch.census.model.CensusGeoBaseObject;
 import org.geo.spatialsearch.census.model.CensusGeographyEnum;
 import org.geo.spatialsearch.census.model.State2010;
@@ -30,6 +31,10 @@ public class CensusServiceImpl implements CensusService {
     @Qualifier("state2010DAO")
     private HibernateDAO<State2010, Long> state2010DAO;
 
+    @Autowired
+    @Qualifier("block2010DAO")
+    private HibernateDAO<Block2010, Long> block2010DAO;
+
     @Override
     @Transactional(readOnly = true)
     public CensusGeoBaseObject findById(CensusGeographyEnum geographyType,
@@ -38,6 +43,9 @@ public class CensusServiceImpl implements CensusService {
         switch (geographyType) {
         case STATE2010:
             geoEntity = state2010DAO.findById(id);
+            break;
+        case BLOCK2010:
+            geoEntity = block2010DAO.findById(id);
             break;
         }
         return geoEntity;
@@ -69,24 +77,6 @@ public class CensusServiceImpl implements CensusService {
             case BLOCK2010:
                 findBlockByPoint(apiResponse, point);
                 break;
-            case CONGRESSIONAL_DISTRICT:
-                findCongressionalDistrictByPoint(apiResponse, point);
-                break;
-            case MSA:
-                findMSAByPoint(apiResponse, point);
-                break;
-            case PLACE:
-                findPlaceByPoint(apiResponse, point);
-                break;
-            case STATE_HOUSE_DISTRICT:
-                findStateHouseDistrictByPoint(apiResponse, point);
-                break;
-            case STATE_SENATE_DISTRICT:
-                findStateSenateDistrictByPoint(apiResponse, point);
-                break;
-            case TRIBAL:
-                findTribalByPoint(apiResponse, point);
-                break;
             case ALL:
                 findAllByPoint(apiResponse, point);
                 break;
@@ -101,41 +91,18 @@ public class CensusServiceImpl implements CensusService {
 
     }
 
-    private void findTribalByPoint(CensusLookupResponse apiResponse, Point point) {
-        // TODO Auto-generated method stub
-
-    }
-
-    private void findStateSenateDistrictByPoint(
-            CensusLookupResponse apiResponse, Point point) {
-        // TODO Auto-generated method stub
-
-    }
-
-    private void findStateHouseDistrictByPoint(
-            CensusLookupResponse apiResponse, Point point) {
-        // TODO Auto-generated method stub
-
-    }
-
-    private void findPlaceByPoint(CensusLookupResponse apiResponse, Point point) {
-        // TODO Auto-generated method stub
-
-    }
-
-    private void findMSAByPoint(CensusLookupResponse apiResponse, Point point) {
-        // TODO Auto-generated method stub
-
-    }
-
-    private void findCongressionalDistrictByPoint(
-            CensusLookupResponse apiResponse, Point point) {
-        // TODO Auto-generated method stub
-
-    }
-
     private void findBlockByPoint(CensusLookupResponse apiResponse, Point point) {
-        // TODO Auto-generated method stub
+        final Criteria stateCriteria = block2010DAO.createCriteria();
+        stateCriteria.add(SpatialRestrictions.contains("geometry", point));
+        Block2010 block = block2010DAO.findByCriteria(stateCriteria);
+        if (block != null) {
+            block.setEnvelope(new Envelope(block.getGeometry()
+                    .getEnvelopeInternal()));
+            apiResponse.getCensusLookupBaseResponse().getBlocks().add(block);
+        }
+        ValidationUtil.isEmptyResult(apiResponse, apiResponse
+                .getCensusLookupBaseResponse().getStates(),
+                Message.NO_STATE_RESULTS_FOUND, null);
 
     }
 

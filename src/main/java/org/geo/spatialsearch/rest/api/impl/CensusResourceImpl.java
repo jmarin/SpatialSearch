@@ -22,6 +22,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
 import com.yammer.metrics.annotation.Timed;
 
 /**
@@ -35,6 +38,7 @@ import com.yammer.metrics.annotation.Timed;
 @Scope(value = "singleton")
 @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,
         "application/x-javascript" })
+@Api(value = "census", basePath = "/census", description = "Census API")
 public class CensusResourceImpl implements CensusResource {
 
     @Autowired
@@ -45,20 +49,25 @@ public class CensusResourceImpl implements CensusResource {
     @Qualifier("exceptionHandler")
     private ExceptionHandler handler;
 
-    //private static final String CENSUS_BY_COORDINATES = "Census-findByCoordinates";
-    //private static final String CENSUS_BY_FIPSCODE = "Census-findGeographyByFips";
-    //private static final String CENSUS_BY_GEOGRAPHY_NAME = "Census-findGeographyByName";
+    // private static final String CENSUS_BY_COORDINATES =
+    // "Census-findByCoordinates";
+    // private static final String CENSUS_BY_FIPSCODE =
+    // "Census-findGeographyByFips";
+    // private static final String CENSUS_BY_GEOGRAPHY_NAME =
+    // "Census-findGeographyByName";
 
     @Override
     @Path(value = "{geography}")
     @GET
     @Timed
-    public Response findByCoordinates(@Context UriInfo uriInfo,
-            @PathParam(value = "geography") String geography,
-            @QueryParam(value = "latitude") double latitude,
-            @QueryParam(value = "longitude") double longitude,
-            @DefaultValue("xml") @QueryParam(value = "format") String format,
-            @QueryParam(value = "callback") String callback) {
+    @ApiOperation(value = "Find Geography by Coordinates", notes = "Returns a Census Geography at a certain latitude, longitude", httpMethod = "GET")
+    public Response findByCoordinates(
+            @Context UriInfo uriInfo,
+            @ApiParam(value = "geography", required = true) @PathParam(value = "geography") String geography,
+            @ApiParam(value = "latitude", required = true) @QueryParam(value = "latitude") double latitude,
+            @ApiParam(value = "longitude", required = true) @QueryParam(value = "longitude") double longitude,
+            @ApiParam(value = "format", required = false) @DefaultValue("xml") @QueryParam(value = "format") String format,
+            @ApiParam(value = "callback", required = false) @QueryParam(value = "callback") String callback) {
         CensusGeographyEnum geographyType = CensusGeographyEnum
                 .getGeographyTypeWithKey(geography);
         CensusLookupResponse apiResponse = new CensusLookupResponse();
@@ -70,7 +79,8 @@ public class CensusResourceImpl implements CensusResource {
             handler.handle(apiResponse, ex);
             exception = ex;
         }
-        //APIStatsProfiler.captureStatistics(CENSUS_BY_COORDINATES, apiResponse,uriInfo, true, exception);
+        // APIStatsProfiler.captureStatistics(CENSUS_BY_COORDINATES,
+        // apiResponse,uriInfo, true, exception);
         Response response = RestFormatUtil
                 .format(format, callback, apiResponse);
         return response;
