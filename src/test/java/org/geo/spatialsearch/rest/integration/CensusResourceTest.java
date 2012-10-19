@@ -14,30 +14,50 @@ import com.sun.jersey.api.client.ClientResponse;
 
 public class CensusResourceTest extends RestfulTest {
 
-    @Override
-    @Before
-    public void setUp() throws Exception {
-        super.setUp();
-    }
+	@Override
+	@Before
+	public void setUp() throws Exception {
+		super.setUp();
+	}
 
-    @Test
-    public void testFindStateByCoordinates() throws JSONException {
-        ClientResponse response = this.webResource.path("census").path("state2010")
-                .queryParam("latitude", "42.919")
-                .queryParam("longitude", "-75.2517")
-                .queryParam("format", "json").get(ClientResponse.class);
-        assertEquals(200, response.getStatus()); // 200 = OK
+	@Test
+	public void testFindStateByCoordinates() throws JSONException {
+		ClientResponse response = this.webResource.path("census")
+				.path("state2010").queryParam("latitude", "42.919")
+				.queryParam("longitude", "-75.2517")
+				.queryParam("format", "json").get(ClientResponse.class);
+		assertEquals(200, response.getStatus()); // 200 = OK
 
-        String json = response.getEntity(String.class);
-        JSONObject results = new JSONObject(json);
-        JSONObject jo = (JSONObject) results.get("Results");
-        JSONArray states = (JSONArray) jo.get("state");
-        Assert.assertFalse(states.isNull(0));
-        JSONObject state = (JSONObject) states.get(0);
+		String json = response.getEntity(String.class);
+		JSONObject results = new JSONObject(json);
+		JSONObject jo = (JSONObject) results.get("Results");
+		JSONArray states = (JSONArray) jo.get("state");
+		Assert.assertFalse(states.isNull(0));
+		JSONObject state = (JSONObject) states.get(0);
 
-        assertEquals("36", state.get("geoid"));
-        assertEquals("New York", state.get("name"));
-        assertEquals("NY", state.get("stusps"));
-    }
+		assertEquals("36", state.get("geoid"));
+		assertEquals("New York", state.get("name"));
+		assertEquals("NY", state.get("stusps"));
+	}
 
+	@Test
+	public void testFindBlockByCoordinates() throws JSONException {
+		ClientResponse response = this.webResource.path("census")
+				.path("block2010").queryParam("latitude", "42.649")
+				.queryParam("longitude", " -73.781")
+				.queryParam("format", "json").get(ClientResponse.class);
+		assertEquals(200, response.getStatus()); // 200 = OK
+
+		String json = response.getEntity(String.class);
+		JSONObject results = new JSONObject(json);
+		JSONObject jo = (JSONObject) results.get("Results");
+		JSONArray blocks = (JSONArray) jo.get("block");
+		Assert.assertFalse(blocks.isNull(0));
+		JSONObject block = (JSONObject) blocks.get(0);
+
+		assertEquals("360010021002003", block.get("geoid"));
+		assertEquals("36", block.get("statefp"));
+		assertEquals("001", block.get("countyfp"));
+
+	}
 }
