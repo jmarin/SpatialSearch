@@ -86,15 +86,17 @@ public class CensusServiceImpl implements CensusService {
         return apiResponse;
     }
 
+    @Transactional(readOnly = true)
     private void findAllByPoint(CensusLookupResponse apiResponse, Point point) {
         // TODO Auto-generated method stub
 
     }
 
+    @Transactional(readOnly = true)
     private void findBlockByPoint(CensusLookupResponse apiResponse, Point point) {
-        final Criteria stateCriteria = block2010DAO.createCriteria();
-        stateCriteria.add(SpatialRestrictions.contains("geometry", point));
-        Block2010 block = block2010DAO.findByCriteria(stateCriteria);
+        final Criteria blockCriteria = block2010DAO.createCriteria();
+        blockCriteria.add(SpatialRestrictions.contains("geometry", point));
+        Block2010 block = block2010DAO.findByCriteria(blockCriteria);
         if (block != null) {
             block.setEnvelope(new Envelope(block.getGeometry()
                     .getEnvelopeInternal()));
@@ -102,15 +104,17 @@ public class CensusServiceImpl implements CensusService {
         }
         ValidationUtil.isEmptyResult(apiResponse, apiResponse
                 .getCensusLookupBaseResponse().getStates(),
-                Message.NO_STATE_RESULTS_FOUND, null);
+                Message.NO_BLOCK_RESULTS_FOUND, null);
 
     }
 
+    @Transactional(readOnly = true)
     private void findTractByPoint(CensusLookupResponse apiResponse, Point point) {
         // TODO Auto-generated method stub
 
     }
 
+    @Transactional(readOnly = true)
     private void findCountyByPoint(CensusLookupResponse apiResponse, Point point) {
         // TODO Auto-generated method stub
 

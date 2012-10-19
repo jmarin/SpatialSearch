@@ -50,6 +50,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>org.geo.spatialsearch.census.model.State2010</value>
+				<value>org.geo.spatialsearch.census.model.Block2010</value>
 			</list>
 		</property>
 	</bean>
