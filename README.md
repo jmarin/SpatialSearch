@@ -10,11 +10,11 @@ SpatialSearch is built with `Maven <http://maven.apache.org/>`. The build produc
 
 To perform a full build, including integration tests (see dependencies below before doing this):
 
-#. mvn clean install
+`mvn clean install`
 
 To run the unit tests (in-memory):
 
-#. mvn test
+`mvn test`
 
 
 Dependencies
@@ -31,15 +31,15 @@ Usage
 
 This first version of the API exposes a "point in polygon" functionality, as follows (example running locally from embedded Jetty Servlet Container)
 
-http://localhost:8081/spatialsearch/census/<geography>?latitude=<latitude>&longitude=<longitude>&format=<format>
+`http://localhost:8081/spatialsearch/census/<geography>?latitude=<latitude>&longitude=<longitude>&format=<format>`
 
 where
 
-<geography> is the type of layer being queried. Currently it can take the following values: state2010, county2010, block2010
+`<geography>` is the type of layer being queried. Currently it can take the following values: state2010, county2010, block2010
 
-<longitude> is the Longitude of the position to query on. Expresses in decimal degrees, WGS84 projection is assumed (EPSG code 4326)
+`<longitude>` is the Longitude of the position to query on. Expresses in decimal degrees, WGS84 projection is assumed (EPSG code 4326)
 
-<latitude> is the Latitude of the position to query on. Expresses in decimal degrees, WGS84 projection is assumed (EPSG code 4326)
+`<latitude>` is the Latitude of the position to query on. Expresses in decimal degrees, WGS84 projection is assumed (EPSG code 4326)
 
-<format> is the output format. Currently it can take the following values: xml, json and jsonp. This parameter is optional, if not specified the response will be enconded as XML
+`<format>` is the output format. Currently it can take the following values: xml, json and jsonp. This parameter is optional, if not specified the response will be enconded as XML
 
