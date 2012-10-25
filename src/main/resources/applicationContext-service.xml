@@ -24,6 +24,17 @@
 		</constructor-arg>
 	</bean>
 
+	<bean id="county2010DAO" class="org.geo.spatialsearch.dao.HibernateDAOImpl">
+		<qualifier value="county2010DAO" />
+		<property name="sessionFactory" ref="sessionFactory" />
+		<constructor-arg>
+			<bean class="java.lang.Class" factory-method="forName">
+				<constructor-arg value="org.geo.spatialsearch.census.model.County2010" />
+			</bean>
+		</constructor-arg>
+	</bean>
+	
+	
 	<bean id="block2010DAO" class="org.geo.spatialsearch.dao.HibernateDAOImpl">
 		<qualifier value="block2010DAO" />
 		<property name="sessionFactory" ref="sessionFactory" />

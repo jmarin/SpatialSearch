@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.geo.spatialsearch.census.model.Block2010;
 import org.geo.spatialsearch.census.model.CensusGeographyEnum;
+import org.geo.spatialsearch.census.model.County2010;
 import org.geo.spatialsearch.census.model.State2010;
 import org.junit.Assert;
 import org.junit.Test;
@@ -49,6 +50,21 @@ public class CensusServiceTest {
         assertEquals(state2010.getName().trim(), "New York");
     }
 
+    @Test
+    public void testCountyById() {
+    	Long id = 1L;
+        County2010 county = (County2010) censusService.findById(
+                CensusGeographyEnum.COUNTY2010, id);
+        assertNotNull(county);
+        assertEquals(county.getGeoid(), "36065");
+    }
+    
+    @Test
+    public void testCountyByPoint() {
+    	
+    }
+    
+    
     @Test
     public void testBlockById() {
         Long id = 1L;

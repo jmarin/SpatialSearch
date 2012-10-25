@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  */
 public enum CensusGeographyEnum {
-    STATE2010("state2010"), COUNTY2010("county2010"), TRACT2010("tract2010"), BLOCK2010(
+    STATE2010("state2010"), COUNTY2010("county2010"), BLOCK2010(
             "block2010"), ALL("all");
 
     private String externalGeographyType;

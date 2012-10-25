@@ -41,6 +41,28 @@ public class CensusResourceTest extends RestfulTest {
 	}
 
 	@Test
+	public void testFindCountyByCoordinates() throws JSONException {
+		ClientResponse response = this.webResource.path("census")
+				.path("county2010").queryParam("latitude", "42.919")
+				.queryParam("longitude", "-75.2517")
+				.queryParam("format", "json").get(ClientResponse.class);
+		assertEquals(200, response.getStatus()); // 200 = OK
+
+		String json = response.getEntity(String.class);
+		JSONObject results = new JSONObject(json);
+		JSONObject jo = (JSONObject) results.get("Results");
+		JSONArray counties = (JSONArray) jo.get("county");
+		Assert.assertFalse(counties.isNull(0));
+		JSONObject county = (JSONObject) counties.get(0);
+
+		assertEquals("36065", county.get("geoid"));
+		assertEquals("Oneida", county.get("name"));
+		assertEquals("36", county.get("statefp10"));
+	}
+
+	
+	
+	@Test
 	public void testFindBlockByCoordinates() throws JSONException {
 		ClientResponse response = this.webResource.path("census")
 				.path("block2010").queryParam("latitude", "42.649")

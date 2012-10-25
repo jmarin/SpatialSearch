@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.geo.spatialsearch.census.model.County2010" table="COUNTY2010"
+		schema="census" lazy="false">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="assigned" />
+		</id>
+		<property name="geometry" type="org.hibernate.spatial.GeometryType"
+			generated="never" lazy="false">
+			<column name="geom" sql-type="BLOB" />
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name10" sql-type="varchar" />
+		</property>
+		<property name="geoid" type="java.lang.String">
+			<column name="geoid10" sql-type="varchar" />
+		</property>
+		<property name="statefp10" type="java.lang.String">
+			<column name="statefp10" sql-type="varchar" />
+		</property>
+	</class>
+</hibernate-mapping>
