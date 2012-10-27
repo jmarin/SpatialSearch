@@ -3,6 +3,18 @@ SpatialSearch
 
 SpatialSearch is a RESTful API that allows the user to query geographic entities by latitude and longitude, and extract data. 
 
+
+What Problem This Solves
+------------------------
+
+Implementing spatial data analysis and queries can often be combersome and difficult for end users.  This provides a simple way to search any spatial data with a latitude / longitude (e.g. GPS point from a smartphone).  
+
+
+How This Solves It
+------------------
+With this simple search, any spatial data can return the attributes at any given location.  This is a RESTful API with simple approaches for the query and response; there is no complicated middle-ware for this implementation.
+
+
 Building
 --------
 
