@@ -3,10 +3,22 @@ SpatialSearch
 
 SpatialSearch is a RESTful API that allows the user to query geographic entities by latitude and longitude, and extract data. 
 
+
+What Problem This Solves
+------------------------
+
+Implementing spatial data analysis and queries can often be combersome and difficult for end users.  This provides a simple way to search any spatial data with a latitude / longitude (e.g. GPS point from a smartphone).  
+
+
+How This Solves It
+------------------
+With this simple search, any spatial data can return the attributes at any given location.  This is a RESTful API with simple approaches for the query and response; there is no complicated middle-ware for this implementation.
+
+
 Building
 --------
 
-SpatialSearch is built with `Maven <http://maven.apache.org/>`_ . The build produces a WAR file suitable for deployment on any JEE 5 compliant Web Container (i.e. Jetty, Tomcat, etc.). 
+SpatialSearch is built with [Maven] `http://maven.apache.org/`. The build produces a WAR file suitable for deployment on any JEE 5 compliant Web Container (i.e. Jetty, Tomcat, etc.). 
 
 To perform a full build, including integration tests (see dependencies below before doing this):
 
@@ -20,11 +32,11 @@ To run the unit tests (in-memory):
 Dependencies
 ------------
 
-* `PostGIS <http://postgis.refractions.net/>`_, the spatial extension to PostgreSQL, is necessary to run the API in production. The Unit tests included with this project use the H2 `GeoDB <https://github.com/jdeolive/geodb>`_ in-memory database, allowing for rapid development without the need for a database server. 
+* [PostGIS] `http://postgis.refractions.net/`, the spatial extension to PostgreSQL, is necessary to run the API in production. The Unit tests included with this project use the H2 [GeoDB] `https://github.com/jdeolive/geodb` in-memory database, allowing for rapid development without the need for a database server. 
 
-* Data. The API exposes the State, County and Census Block geographic layers from the 2010 Census Bureau. These can be obtained from the `TIGER <http://www.census.gov/geo/www/tiger/tgrshp2010/tgrshp2010.html>`_ download page and need to be imported into PostGIS in order to be able to publish the API. SpatialSearch uses the default schema of the tables, grouped into a `census` schema within a database called `gisdb` by default. All these parameters can be changed
+* Data. The API exposes the State, County and Census Block geographic layers from the 2010 Census Bureau. These can be obtained from the [TIGER] `http://www.census.gov/geo/www/tiger/tgrshp2010/tgrshp2010.html` download page and need to be imported into PostGIS in order to be able to publish the API. SpatialSearch uses the default schema of the tables, grouped into a `census` schema within a database called `gisdb` by default. All these parameters can be changed
 
-* SpatialSearch uses `Hibernate Spatial <http://www.hibernatespatial.org/>`_ for the geospatial functionality. This library supports the same type of functionality on other Spatial DBMS systems such as Oracle Spatial, Microsoft SQL Server, etc. For more information please visit its website.
+* SpatialSearch uses [Hibernate Spatial] `http://www.hibernatespatial.org/` for the geospatial functionality. This library supports the same type of functionality on other Spatial DBMS systems such as Oracle Spatial, Microsoft SQL Server, etc. For more information please visit [its website](http://www.hibernatespatial.org/).
 
 Usage
 -----
@@ -43,3 +55,8 @@ where
 
 ``<format>`` is the output format. Currently it can take the following values: xml, json and jsonp. This parameter is optional, if not specified the response will be enconded as XML
 
+  [Maven]: http://maven.apache.org
+  [PostGIS]: http://postgis.refractions.net/
+  [GeoDB]: https://github.com/jdeolive/geodb
+  [TIGER]: http://www.census.gov/geo/www/tiger/tgrshp2010/tgrshp2010.html
+  [Hibernate Spatial]: http://www.hibernatespatial.org/
