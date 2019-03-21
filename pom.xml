@@ -14,7 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<junit.version>4.8.1</junit.version>
 		<mockito.version>1.9.0</mockito.version>
-		<springframework.version>3.1.2.RELEASE</springframework.version>
+		<springframework.version>4.3.17</springframework.version>
 		<aspectj.version>1.7.0</aspectj.version>
 		<hibernate.version>4.1.6.Final</hibernate.version>
 		<hibernate.spatial.version>4.0-M1</hibernate.spatial.version>
